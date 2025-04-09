@@ -16,7 +16,7 @@ def run():
         interests = input(
             "What are your interests? (e.g., lakeside views, hiking, etc.): "
         )
-        state = input("Enter your city: ")
+        city = input("Enter your city: ")
 
         inputs = {
             "destination": destination,
@@ -25,7 +25,7 @@ def run():
             "no_of_people": no_of_people,
             "budget": budget,
             "interests": interests,
-            "state": state,
+            "city": city,
         }
 
         TripPlanner().crew().kickoff(inputs=inputs)

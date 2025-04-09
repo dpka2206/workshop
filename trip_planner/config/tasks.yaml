@@ -57,9 +57,26 @@ weather_conditions_monitoring_task:
 
 flight_task:
   description: >
-    Book flights for the trip to {destination} from {state}
+    Book flights for the trip to {destination} from {city}
     Find the best flight options that fit within the budget and schedule of the travelers.
   expected_output: >
-    give a prompt so that I can give it to another ai in the format of
-    "Search a flight from {state} to {destination} for {no_of_people} people on {date}. and give me the appximate cost. From google flights."
+    give a prompt so that I can give it to browser_use in the format of
+    "Open https://www.google.com/travel/flights.  
+     Wait for the page to load completely.
+     
+     1. Click on the "Round trip" option (if not already selected).
+     2. Click the "From" input field. Clear any existing text. Type "{city}" and select the correct suggestion from the dropdown.
+     3. Click the "To" input field. Clear any existing text. Type "{destination}" and select the correct suggestion from the dropdown.
+     4. Click the "Departure date" field. Choose the date "{date}".
+     5. For the return date, calculate the return date as {date} + {no_of_days} and select that date in the calendar.
+     6. Click on the "Travelers" option. Set the number of adults to "{no_of_people}".
+     7. Click the "Done" or "Search" button to initiate the flight search.
+     8. Wait for the results to load. Scrape the top 5 flight results including:
+        - Airline name
+        - Departure and arrival times
+        - Total duration
+        - Price
+        - Number of stops
+
+    Output the results in a structured JSON format."
   agent: flight_agent
