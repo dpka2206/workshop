@@ -53,6 +53,6 @@ def get_browser_agent(tasks):
 
 if __name__ == "__main__":
     run()
-    with open("output/flights.txt", "r") as file:
+    with open("prompt/flights.txt", "r") as file:
         task = file.read()
     get_browser_agent(task)

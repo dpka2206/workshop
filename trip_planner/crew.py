@@ -129,7 +129,7 @@ class TripPlanner:
     def flight_task(self) -> Task:
         return Task(
             config=self.tasks_config["flight_task"],
-            output_file="output/flights.txt",
+            output_file="prompt/flights.txt",
         )
 
     @crew
