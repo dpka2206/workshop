@@ -34,17 +34,27 @@ def run():
         raise Exception(f"An error occurred while running the crew: {e}")
 
 
+llm = ChatGoogleGenerativeAI(
+                model="gemini-2.0-flash",
+                api_key="AIzaSyCMTL1rozzOgXo-Ro-L4nqU964o8tB3bRY")
+
+
+
+browser = browser_use.Browser(
+    config=browser_use.BrowserConfig(
+        chrome_instance_path='C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+    )
+)
+
 def get_browser_agent(tasks):
     async def main(tasks):
         agent = browser_use.Agent(
             task=tasks,
-            llm=ChatGoogleGenerativeAI(
-                model="gemini-2.0-flash",
-                api_key="AIzaSyCMTL1rozzOgXo-Ro-L4nqU964o8tB3bRY",
-            ),
+            llm=llm,
+            browser=browser
         )
         result = await agent.run()
-
+        await browser.close()
         with open("output/output.txt", "w", encoding="utf-8") as f:
             f.write(str(result))
 
@@ -52,7 +62,7 @@ def get_browser_agent(tasks):
 
 
 if __name__ == "__main__":
-    run()
+    # run()
     with open("prompt/flights.txt", "r") as file:
         task = file.read()
     get_browser_agent(task)
