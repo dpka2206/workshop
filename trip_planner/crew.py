@@ -80,56 +80,56 @@ class TripPlanner:
     def itinerary_planner_task(self) -> Task:
         return Task(
             config=self.tasks_config["itinerary_planner_task"],
-            output_file="itinerary_planner_task.md",
+            output_file="output/itinerary_planner_task.md",
         )
 
     @task
     def accommodation_finder_task(self) -> Task:
         return Task(
             config=self.tasks_config["accommodation_finder_task"],
-            output_file="accommodation_finder_task.md",
+            output_file="output/accommodation_finder_task.md",
         )
 
     @task
     def budget_management_task(self) -> Task:
         return Task(
             config=self.tasks_config["budget_management_task"],
-            output_file="budget_management_task.md",
+            output_file="output/budget_management_task.md",
         )
 
     @task
     def activity_recommendation_task(self) -> Task:
         return Task(
             config=self.tasks_config["activity_recommendation_task"],
-            output_file="activity_recommendation_task.md",
+            output_file="output/activity_recommendation_task.md",
         )
 
     @task
     def transportation_optimization_task(self) -> Task:
         return Task(
             config=self.tasks_config["transportation_optimization_task"],
-            output_file="transportation_optimization_task.md",
+            output_file="output/transportation_optimization_task.md",
         )
 
     @task
     def local_expert_ai_task(self) -> Task:
         return Task(
             config=self.tasks_config["local_expert_ai_task"],
-            output_file="local_expert_ai_task.md",
+            output_file="output/local_expert_ai_task.md",
         )
 
     @task
     def weather_conditions_monitoring_task(self) -> Task:
         return Task(
             config=self.tasks_config["weather_conditions_monitoring_task"],
-            output_file="weather_conditions_monitoring_task.md",
+            output_file="output/weather_conditions_monitoring_task.md",
         )
 
     @task
     def flight_task(self) -> Task:
         return Task(
             config=self.tasks_config["flight_task"],
-            output_file="flights.txt",
+            output_file="output/flights.txt",
         )
 
     @crew
